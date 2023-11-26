@@ -62,21 +62,24 @@ footer {
     width: 400px;
     float: left;
     height: 70px;
+    
 }
 ul{
     float: left;
     display: flex;
     justify-content: center;
+
 }
 ul li{
     list-style: none;
-    margin-left: 30px;
+    margin-left: 25px;
     margin-top: 27px;
     font-size: 14px;
+    
 }
 ul li a{
     text-decoration: none;
-    color: black;
+    color:antiquewhite;
     font-family: Arial;
     font-weight: bold;
     transition: 0.4s ease-in-out;
@@ -96,4 +99,48 @@ ul li a:hover{
     color: black;
     position: relative;
 
+}
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: chocolate;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color:chocolate;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid blue;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.admin{
+    width: 100%;
+    background-image: url(pics/admin2.png);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
 }
