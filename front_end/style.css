@@ -89,8 +89,8 @@ ul li a:hover{
 }
 .search{
     width: 330px;
-    float: left;
-    margin-left: 270px;
+    float:left;
+    margin-left: 27px;
 }
 .about-section{
     width: 1200px;
@@ -239,6 +239,40 @@ button {
     background-position: center;
     background-size: cover;
     height: 109vh;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.feedback-details {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+#rating {
+    font-weight: bold;
+}
+
+#userName {
+    font-weight: bold;
 }
 
 
