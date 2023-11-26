@@ -144,3 +144,10 @@ button {
     background-size: cover;
     height: 109vh;
 }
+.user{
+    width: 100%;
+    background-image: url(pics/user1.png);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
