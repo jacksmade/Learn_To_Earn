@@ -89,3 +89,11 @@ ul li a:hover{
     float: left;
     margin-left: 270px;
 }
+.about-section{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    color: black;
+    position: relative;
+
+}
