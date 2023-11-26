@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="navbar">
+            <div class="icons">
+                <h2 class="logo">EarnEd</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">User</a></li>
+                    <li><a href="#">Admin</a></li>
+                    <li><a href="#">Certificate</a></li>
+                    <li><a href="#">Content</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Instructor_Profile</a></li>
+                    <li><a href="#">Job_Listing</a></li>
+                    <li><a href="#">Modules</a></li>
+                    <li><a href="#">Mentorship</a></li>
+                    <li><a href="#">Transaction</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>      
+        </div>
+        <div class="container">
+            <h1>Learning Module</h1>
+            <form action="#">
+                <label for="moduleID">Module ID:</label>
+                <input type="text" id="moduleID" name="moduleID" required>
+                <br>
+
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <br> 
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="10" cols="50" required></textarea>
+                <br>
+                <button type="button" onclick="generateQuizAndVideo()">Generate Quiz and Video</button>
+            </form>
+
+        <div id="result"></div>
+
+    <script>
+        function generateQuizAndVideo() {
+            const moduleID = document.getElementById('moduleID').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('content').value;
+            const quiz = generateQuiz(content);
+            const videoURL = generateVideoURL(title);
+            const resultHTML = `
+            <h3>Module ID: ${moduleID}</h3>
+            <input type="text" id="ModuleID" name="moduleID" required>
+            <h3>Title: ${title}</h3>
+            <input type="text" id="Title" name="title" required>
+            <h3>Content:</h3>
+            <p>${content}</p>
+            <input type="text" id="Content" name="content" required>
+            <h3>Quiz:</h3>
+            <p>${quiz}</p>
+            <input type="text" id="Quiz" name="quiz" required>
+            <h3>Video URL:</h3>
+            <a href="${videoURL}">${videoURL}</a>
+        `;
+        document.getElementById('result').innerHTML = resultHTML;
+    }
+
+    function generateQuiz(content) {
+      // Extract keywords from content
+        const keywords = extractKeywords(content);
+      // Generate quiz questions
+        const questions = [];
+        for (const keyword of keywords) {
+        const question = generateQuestion(keyword);
+        questions.push(question);
+        }
+      // Convert questions to HTML
+        const quizHTML = questions.join('<br>');
+        return quizHTML;
+    }
+
+    function generateVideoURL(title) {
+      // Use YouTube API to search for related videos
+        const videoSearchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${title}&maxResults=1`;
+        const videoID = fetch(videoSearchURL)
+        .then(response => response.json())
+        .then(data => data.items[0].id.videoId);
+      // Construct video URL
+        const videoURL = `https://www.youtube.com/watch?v=${videoID}`;
+        return videoURL;
+    }
+
+    function extractKeywords(content) {
+      // Use a keyword extraction algorithm
+      const keywords = []; // TODO: Implement keyword extraction algorithm
+
+        return keywords;
+    }
+
+    function generateQuestion(keyword) {
+      // Generate a question based on the keyword
+      const question = `What is ${keyword}?`; // TODO: Implement question generation algorithm
+        return question;
+    }
+</script>
+        <button type="submit">Done</button>
+        </div>
+    
+    </div>
+
+</body>
+</html>
