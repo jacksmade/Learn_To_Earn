@@ -1,19 +1,19 @@
 const express = require('express');
 const router=express.Router();
-const transaction = require('../controllers/transactionController');
+const content = require('../controllers/contentController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
 //new user
-router.post('/transaction',transaction.createTransaction);
+router.post('/content',content.createContent);
 //get all user
-router.get('/transaction',transaction.getAllTransaction);
+router.get('/content',content.getAllContent);
 //update user
-router.put('/transaction/:transactionID',transaction.updateTransaction);
+router.put('/content/:contentID',content.updateContent);
 //delete user
-router.delete('/transaction/:transactionID',transaction.deleteTransaction);
+router.delete('/content/:contentID',content.deleteContent);
 // create login
-router.post('/loginTransaction',transaction.logInTransaction);
+router.post('/loginContent',content.logInContent);
 router.post('/admin',validateToken,admin.adminDashboard);
 
 module.exports=router;
