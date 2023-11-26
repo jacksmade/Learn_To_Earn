@@ -4,15 +4,15 @@ const instructor = require('../controllers/instructorController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
-//new user
+//new intructor
 router.post('/instructor',instructor.createInstructor);
-//get all user
+//get all instructor
 router.get('/instructor',instructor.getAllInstructor);
-//update user
+//update instructor
 router.put('/instructor/:educatorID',instructor.updateInstructor);
-//delete user
+//delete instructor
 router.delete('/instructor/:educatorID',instructor.deleteInstructor);
-// create login
+// create login for instructor
 router.post('/loginInstructor',instructor.logInInstructor);
 router.post('/admin',validateToken,admin.adminDashboard);
 

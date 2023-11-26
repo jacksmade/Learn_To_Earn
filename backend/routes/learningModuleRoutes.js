@@ -4,15 +4,15 @@ const learningModule = require('../controllers/learningModuleController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
-//new user
+//new learning module
 router.post('/learningModule',learningModule.createLearningModule);
-//get all user
+//get all learning module
 router.get('/learningModule',learningModule.getAllLearningModule);
-//update user
+//update learning module
 router.put('/learningModule/:moduleID',learningModule.updateLearningModule);
-//delete user
+//delete learning module
 router.delete('/learningModule/:moduleID',learningModule.deleteLearningModule);
-// create login
+// create login for learning module
 router.post('/loginLearningModule',learningModule.logInLearningModule);
 router.post('/admin',validateToken,admin.adminDashboard);
 

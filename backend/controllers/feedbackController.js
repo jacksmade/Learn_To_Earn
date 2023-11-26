@@ -1,9 +1,8 @@
 
-const content = require('../models/content');
-const feedback = require('../models/feedback');
-const user = require('../models/user');
+const feedback = require('../models/feedback');// feedback credentials
+const user = require('../models/user');// user credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create feedback for user 
 async function createfeedback(req,res){
     try {
         const feedback = await feedback.create(req.body);
@@ -13,7 +12,7 @@ async function createfeedback(req,res){
     }
 }
 
-// LOGIN
+// LOGIN to find the own feedback and saw other feedback as well
 
 async function logInFeedback (req, res, next) {
     const { username, password } = req.params;    
@@ -25,7 +24,7 @@ async function logInFeedback (req, res, next) {
             return res.status(200).json({ 
             message: 'Logged in successfully', 
             feedbackID:feedback.feedbackID,
-            content:feedback.content,
+            content:feedback.content, // here the content means your opinion regarding the content
             rating:feedback.rating,
             User:feedback.user.User,
             token: token, 
@@ -45,7 +44,7 @@ function generteLoginToken(feedback) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update your feedback
 async function updatefeedback(req,res){
     try {
         const {feedbackID}=req.params;
@@ -55,7 +54,7 @@ async function updatefeedback(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// user can delete his/her feedback
 async function deletefeedback(req,res){
     try {
         const {feedbackID}=req.params;
@@ -67,7 +66,7 @@ async function deletefeedback(req,res){
 }
 
 
-//get all user
+//saw all feedback on the content that you read
 async function getAllfeedback(req,res){
     try{
         const feedbacks=await feedback.find();

@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+const mongoose=require('mongoose'); // interact with mongoDB
 const adminSchema=new mongoose.Schema({
     adminID:String,
     adminUsername:String,

@@ -1,8 +1,8 @@
 
-const content = require('../models/content');
-const user = require('../models/user');
+const content = require('../models/content');// content credentials
+const user = require('../models/user');// user credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create content of any subject and any topic
 async function createContent(req,res){
     try {
         const content = await content.create(req.body);
@@ -12,7 +12,7 @@ async function createContent(req,res){
     }
 }
 
-// LOGIN
+// LOGIN to find the specific content to read
 
 async function logInContent (req, res, next) {
     const { username, password } = req.params;    
@@ -44,7 +44,7 @@ function generteLoginToken(content) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update content in the base of current situation 
 async function updateContent(req,res){
     try {
         const {contentId}=req.params;
@@ -54,7 +54,7 @@ async function updateContent(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete content if the most ranking student didn't used or complain
 async function deleteContent(req,res){
     try {
         const {contentId}=req.params;
@@ -66,7 +66,7 @@ async function deleteContent(req,res){
 }
 
 
-//get all user
+//get all content to specify the field or type 
 async function getAllContent(req,res){
     try{
         const contents=await content.find();

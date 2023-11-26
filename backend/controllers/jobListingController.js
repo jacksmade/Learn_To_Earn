@@ -1,8 +1,8 @@
 
-const jobListing = require('../models/jobListing');
-const user = require('../models/user');
+const jobListing = require('../models/jobListing');// jobListing credentials
+const user = require('../models/user');// user credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create the job opportunity
 async function createJobListing(req,res){
     try {
         const jobListing = await jobListing.create(req.body);
@@ -12,7 +12,7 @@ async function createJobListing(req,res){
     }
 }
 
-// LOGIN
+// LOGIN account to saw the job listing
 
 async function logInJobListing (req, res, next) {
     const { username, password } = req.params;    
@@ -45,7 +45,7 @@ function generteLoginToken(jobListing) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update the job opportunity requirements
 async function updateJobListing(req,res){
     try {
         const {jobID}=req.params;
@@ -55,7 +55,7 @@ async function updateJobListing(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete the job listing the the admin want
 async function deleteJobListing(req,res){
     try {
         const {jobID}=req.params;
@@ -67,7 +67,7 @@ async function deleteJobListing(req,res){
 }
 
 
-//get all user
+//saw all job listing and opportunity
 async function getAllJobListing(req,res){
     try{
         const jobListings=await jobListing.find();

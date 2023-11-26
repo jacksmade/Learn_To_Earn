@@ -1,8 +1,8 @@
 
-const instructor = require('../models/instructor');
-const user = require('../models/user');
+const instructor = require('../models/instructor');// instructor credentials
+const user = require('../models/user');// user credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create instructor who teach the content 
 async function createInstructor(req,res){
     try {
         const instructor = await instructor.create(req.body);
@@ -12,7 +12,7 @@ async function createInstructor(req,res){
     }
 }
 
-// LOGIN
+// LOGIN the account to make the profile
 
 async function logInInstructor (req, res, next) {
     const { username, password } = req.params;    
@@ -42,7 +42,7 @@ function generteLoginToken(instructor) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update instructor profiles
 async function updateInstructor(req,res){
     try {
         const {educatorID}=req.params;
@@ -52,7 +52,7 @@ async function updateInstructor(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// instructor can delete his/her profile
 async function deleteInstructor(req,res){
     try {
         const {educatorID}=req.params;
@@ -64,7 +64,7 @@ async function deleteInstructor(req,res){
 }
 
 
-//get all user
+//get all profiles
 async function getAllInstructor(req,res){
     try{
         const instructors=await instructor.find();

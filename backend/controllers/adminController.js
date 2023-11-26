@@ -1,8 +1,6 @@
-
-const admin = require('../models/admin');
-const user=require('../modules/user')
+const admin = require('../models/admin');  // link to the admin credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create Admin
 async function createAdmin(req,res){
     try {
         const admin = await admin.create(req.body);
@@ -12,7 +10,7 @@ async function createAdmin(req,res){
     }
 }
 
-// LOGIN
+// LOGIN to Admin Account
 
 async function logIn (req, res, next) {
     const { adminUsername, adminPassword } = req.params;    
@@ -34,7 +32,7 @@ async function logIn (req, res, next) {
 };
 
 
-// get token
+// get token by AdminID 
 
 function generteLoginToken(admin) {
     const payload = { 
@@ -43,7 +41,7 @@ function generteLoginToken(admin) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update Admin  on the base of ID
 async function updateAdmin(req,res){
     try {
         const {adminID}=req.params;
@@ -53,7 +51,7 @@ async function updateAdmin(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete Admin on the base of ID
 async function deleteAdmin(req,res){
     try {
         const {adminID}=req.params;
@@ -65,7 +63,7 @@ async function deleteAdmin(req,res){
 }
 
 
-//get all user
+//get all Admin 
 async function getAllAdmin(req,res){
     try{
         const admins=await admin.find();

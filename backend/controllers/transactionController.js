@@ -1,9 +1,8 @@
 
-const admin = require('../models/admin');
-const user = require('../models/user');
+const user = require('../models/user'); // user credentials
 const jwt = require('jsonwebtoken');
-const transaction = require('../models/transaction');
-// create user
+const transaction = require('../models/transaction'); // transaction credentials
+// create transaction for the content
 async function createTransaction(req,res){
     try {
         const transaction = await transaction.create(req.body);
@@ -13,7 +12,7 @@ async function createTransaction(req,res){
     }
 }
 
-// LOGIN
+// LOGIN account for transaction
 
 async function logInTransaction (req, res, next) {
     const { username, password } = req.params;    
@@ -45,7 +44,7 @@ function generteLoginToken(transaction) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update transaction account for different content and intructor
 async function updateTransaction(req,res){
     try {
         const {transactionID}=req.params;
@@ -55,7 +54,7 @@ async function updateTransaction(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// cancel the transaction
 async function deleteTransaction(req,res){
     try {
         const {transactionID}=req.params;
@@ -67,7 +66,7 @@ async function deleteTransaction(req,res){
 }
 
 
-//get all user
+//see all the transaction
 async function getAllTransaction(req,res){
     try{
         const transactions=await transaction.find();

@@ -1,7 +1,6 @@
 
-const learningModule = require('../models/learningModule');
-const mentorship = require('../models/mentorship');
-const user = require('../models/user');
+const mentorship = require('../models/mentorship'); // credentials of mentorship
+const user = require('../models/user'); // user credentials
 const jwt = require('jsonwebtoken');
 // create user
 async function createMentorship(req,res){
@@ -13,7 +12,7 @@ async function createMentorship(req,res){
     }
 }
 
-// LOGIN
+// LOGIN with he user account to match the capability with intructor for mentorship
 
 async function logInMentorship (req, res, next) {
     const { username, password } = req.params;    
@@ -43,7 +42,7 @@ function generteLoginToken(mentorship) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update mentorship
 async function updateMentorship(req,res){
     try {
         const {mentorID}=req.params;
@@ -53,7 +52,7 @@ async function updateMentorship(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete mentorship
 async function deleteMentorship(req,res){
     try {
         const {mentorID}=req.params;
@@ -65,7 +64,7 @@ async function deleteMentorship(req,res){
 }
 
 
-//get all user
+//get all mentorship
 async function getAllMentorship(req,res){
     try{
         const mentorships=await mentorship.find();

@@ -5,6 +5,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/credential-apis',{
     useUnifiedTopology:true,
 
 });
+
+// connect with mongoDB
 const db=mongoose.connection;
 db.on('error',(err)=>{
     console.log('Failed to connect with db');

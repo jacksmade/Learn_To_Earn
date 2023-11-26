@@ -1,8 +1,8 @@
 
-const learningModule = require('../models/learningModule');
-const user = require('../models/user');
+const learningModule = require('../models/learningModule'); // credentials of learning module
+const user = require('../models/user'); //user credentials
 const jwt = require('jsonwebtoken');
-// create user
+// create learning module for users
 async function createLearningModule(req,res){
     try {
         const learningModule = await learningModule.create(req.body);
@@ -12,7 +12,7 @@ async function createLearningModule(req,res){
     }
 }
 
-// LOGIN
+// LOGIN to open the learning module and choose what you want like vedio and quiz
 
 async function logInLearningModule (req, res, next) {
     const { username, password } = req.params;    
@@ -45,7 +45,7 @@ function generteLoginToken(learningModule) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update learning module
 async function updateLearningModule(req,res){
     try {
         const {moduleID}=req.params;
@@ -55,7 +55,7 @@ async function updateLearningModule(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete learning module
 async function deleteLearningModule(req,res){
     try {
         const {moduleID}=req.params;
@@ -67,7 +67,7 @@ async function deleteLearningModule(req,res){
 }
 
 
-//get all user
+//get all learning module
 async function getAllLearningModule(req,res){
     try{
         const learningModules=await learningModule.find();

@@ -4,15 +4,15 @@ const transaction = require('../controllers/transactionController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
-//new user
+//new transaction
 router.post('/transaction',transaction.createTransaction);
-//get all user
+//get all transaction
 router.get('/transaction',transaction.getAllTransaction);
-//update user
+//update transaction
 router.put('/transaction/:transactionID',transaction.updateTransaction);
-//delete user
+//delete transaction
 router.delete('/transaction/:transactionID',transaction.deleteTransaction);
-// create login
+// create login for transaction
 router.post('/loginTransaction',transaction.logInTransaction);
 router.post('/admin',validateToken,admin.adminDashboard);
 

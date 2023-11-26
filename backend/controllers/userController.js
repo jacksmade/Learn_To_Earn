@@ -1,5 +1,5 @@
 
-const user = require('../models/user');
+const user = require('../models/user'); // user credentials
 const jwt = require('jsonwebtoken');
 // create user
 async function createUser(req,res){
@@ -11,7 +11,7 @@ async function createUser(req,res){
     }
 }
 
-// LOGIN
+// LOGIN account to specify the role like student and instructor
 
 async function login (req, res, next) {
     const { username, password } = req.params;    

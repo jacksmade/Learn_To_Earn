@@ -1,8 +1,8 @@
 
 const jwt = require('jsonwebtoken');
-const user = require('../models/user');
-const certificate = require('../models/certificate');
-// create user
+const user = require('../models/user'); // user credentials
+const certificate = require('../models/certificate');// certificate credentials
+// create Certificate when the user successfully complete the course or content
 async function createCertificate(req,res){
     try {
         const certificate = await certificate.create(req.body);
@@ -12,7 +12,7 @@ async function createCertificate(req,res){
     }
 }
 
-// LOGIN
+// LOGIN to find the certain certificate
 
 async function Find (req, res, next) {
     const { username, password } = req.params;    
@@ -43,7 +43,7 @@ function generteLoginToken(certificate) {
     const token = jwt.sign(payload, "kjsduiewogtrre"); 
     return token;
 };
-// update user
+// update certificate if another students complete the same content
 async function updateCertificate(req,res){
     try {
         const {certificateID}=req.params;
@@ -53,7 +53,7 @@ async function updateCertificate(req,res){
         res.status(500).json({error:err.message});
     }
 }
-// delete user
+// delete the certificate if the user didn't complete the quiz
 async function deleteCertificate(req,res){
     try {
         const {certificateID}=req.params;
@@ -65,7 +65,7 @@ async function deleteCertificate(req,res){
 }
 
 
-//get all user
+//get all certificates of the same and different user for same or different content
 async function getAllCertificate(req,res){
     try{
         const certificates=await certificate.find();

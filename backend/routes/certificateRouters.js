@@ -4,15 +4,15 @@ const certificate = require('../controllers/certificateController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
-//new user
+//new certificate
 router.post('/certificate',certificate.createCertificate);
-//get all user
+//get all certificate
 router.get('/certificate',certificate.getAllCertificate);
-//update user
+//update certificate
 router.put('/certificate/:certificateID',certificate.updateCertificate);
-//delete user
+//delete certificate
 router.delete('/certificate/:certificateID',certificate.deleteCertificate);
-// create login
+// create login for certificate
 router.post('/loginCertificate',certificate.Find);
 router.post('/admin',validateToken,admin.adminDashboard);
 

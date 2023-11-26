@@ -4,15 +4,15 @@ const content = require('../controllers/contentController');
 const admin = require('../controllers/adminController');
 const {validateToken} = require('../utils/authorizationMiddleware');
 const {requireRoles} = require('../utils/authorizationMiddleware');
-//new user
+//new content
 router.post('/content',content.createContent);
-//get all user
+//get all content
 router.get('/content',content.getAllContent);
-//update user
+//update content
 router.put('/content/:contentID',content.updateContent);
-//delete user
+//delete content
 router.delete('/content/:contentID',content.deleteContent);
-// create login
+// create login for content
 router.post('/loginContent',content.logInContent);
 router.post('/admin',validateToken,admin.adminDashboard);
 
