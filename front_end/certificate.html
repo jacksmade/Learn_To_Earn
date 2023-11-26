@@ -34,17 +34,22 @@
             <form action="#">
                 <div class="certificate-details">
                     <p>Certificate ID: <span id="certificateID"></span></p>
+                    <input type="text" id="CertificateID" name="certificateID" required>
                     <p>Title: <span id="title"></span></p>
+                    <input type="text" id="Title" name="title" required>
                     <p>Awarded to: <span id="userName"></span></p>
+                    <input type="text" id="username" name="username" required>
                     <p>Date: <span id="date"></span></p>
+                    <input type="text" id="Date" name="date" required>
                 </div>
                 <p style="text-align: center;">
-                    This certificate is awarded to <span id="userName"></span> in recognition of the successful completion of <span id="title"></span>. This certificate signifies the individual's dedication, hard work, and commitment to learning.
+                    This certificate is awarded to <span id="usernames"></span> in recognition of the successful completion of <span id="titles"></span>. This certificate signifies the individual's dedication, hard work, and commitment to learning.
                 </p>
         
                 <p style="text-align: right;">
                     Signature: <br>
                     [Authorized Signature]
+                    
                 </p>
     
                 <button type="submit">Generate</button>

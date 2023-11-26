@@ -192,4 +192,53 @@ p {
 #date {
     font-style: italic;
 }
+body {
+    font-family: sans-serif;
+}
+.container {
+    width: 800px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.module-details {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+#description {
+    white-space: pre-line;
+    margin-bottom: 20px;
+}
+.module-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+#content {
+    white-space: pre-line;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.content{
+    width: 100%;
+    background-image: url(pics/admin2.png);
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
+}
+
 
